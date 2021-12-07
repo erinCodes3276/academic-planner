@@ -40,9 +40,8 @@ C_121 = BasicPropositions("C_121")
 C_124 = BasicPropositions("C_124") 
 
 M_1 = BasicPropositions("M_1")
-c = BasicPropositions("c")
-d = BasicPropositions("d")
-e = BasicPropositions("e")
+M_2 = BasicPropositions("M_2")
+
 # At least one of these will be true
 x = FancyPropositions("x")
 y = FancyPropositions("y")
