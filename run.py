@@ -32,8 +32,8 @@ class FancyPropositions:
         return f"A.{self.data}"
 
 # Call your variables whatever you want
-a = BasicPropositions("a")
-b = BasicPropositions("b")   
+a = BasicPropositions("C_121")
+b = BasicPropositions("C_124")   
 c = BasicPropositions("c")
 d = BasicPropositions("d")
 e = BasicPropositions("e")
