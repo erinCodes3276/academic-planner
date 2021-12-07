@@ -21,17 +21,18 @@ class BasicPropositions:
 # that are instances of this class must be true by using a @constraint decorator.
 # other options include: at most one, exactly one, at most k, and implies all.
 # For a complete module reference, see https://bauhaus.readthedocs.io/en/latest/bauhaus.html
-@constraint.at_least_one(E)
-@proposition(E)
-class FancyPropositions:
+#@constraint.at_least_one(E)
+#@proposition(E)
+#class FancyPropositions:
 
-    def __init__(self, data):
-        self.data = data
+ #   def __init__(self, data):
+    #    self.data = data
 
-    def __repr__(self):
-        return f"A.{self.data}"
+  #  def __repr__(self):
+   #     return f"A.{self.data}"
 
 # Call your variables whatever you want
+#Biology / Chemistry / Biochem Requirements (classes)
 B_102 = BasicPropositions("B_102")
 B_103 = BasicPropositions("B_103")
 B_112 = BasicPropositions("B_112")
@@ -40,6 +41,7 @@ B_205 = BasicPropositions("B_205")
 B_331 = BasicPropositions("B_331")
 B_334 = BasicPropositions("B_334")
 
+#Computer SCience Requirements (classes)
 C_121 = BasicPropositions("C_121")
 C_124 = BasicPropositions("C_124") 
 C_203 = BasicPropositions("C_203")
@@ -59,36 +61,37 @@ C_472 = BasicPropositions("C_472")
 C_497 = BasicPropositions("C_497")
 C_499 = BasicPropositions("C_499") 
 
-T_111 = BasicPropositions("M_111")
-T_120 = BasicPropositions("M_120")
+#Math requirements (classes)
+T_111 = BasicPropositions("T_111")
+T_120 = BasicPropositions("T_120")
 
+#Statistics requirements
 S_263 = BasicPropositions("S_263")
 
+#Additional requirement (12 units from several classes)
 A = BasicPropositions("A")
 D = BasicPropositions("D")
 
+#BIOL/CHEM/BCHEM requirements by year (1st, 2nd, 3rd, 4th)
 B_1 = BasicPropositions("B_1")
 B_2 = BasicPropositions("B_2")
 B_3 = BasicPropositions("B_3")
 B_4 = BasicPropositions("B_4")
 
+#CISC requirements by year
 C_1 = BasicPropositions("C_1")
 C_2 = BasicPropositions("C_2")
 C_3 = BasicPropositions("C_3")
 C_4 = BasicPropositions("C_4")
 
+#MATH requirements (only 1st year)
 T_1 = BasicPropositions("B_1")
 
+#Completed first/second/third/fourth year
 FIRST = BasicPropositions("FIRST")
 SECOND = BasicPropositions("SECOND")
 THIRD = BasicPropositions("THIRD")
 FOURTH = BasicPropositions("FOURTH")
-
-
-# At least one of these will be true
-x = FancyPropositions("x")
-y = FancyPropositions("y")
-z = FancyPropositions("z")
 
 
 # Build an example full theory for your setting and return it.
@@ -97,10 +100,10 @@ z = FancyPropositions("z")
 #  This restriction is fairly minimal, and if there is any concern, reach out to the teaching staff to clarify
 #  what the expectations are.
 def example_theory():
-    # Add custom constraints by creating formulas with the variables you created. 
+    # CISC course and Math prerequisite implication constraints
     E.add_constraint(C_320 >> C_235)
     E.add_constraint(C_330 >> (C_121 & C_271))
-    E.add_constraint(C_332 >> (C_124 & M_111))
+    E.add_constraint(C_332 >> (C_124 & T_111))
     E.add_constraint(C_352 >> C_235)
     E.add_constraint(C_360 >> (C_124 & C_204))
     E.add_constraint(C_365 >> (C_204 & C_235))
