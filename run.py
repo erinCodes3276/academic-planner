@@ -7,7 +7,7 @@ E = Encoding()
 
 # To create propositions, create classes for them first, annotated with "@proposition" and the Encoding
 @proposition(E)
-class BasicPropositions:
+class firstYear:
 
     def __init__(self, data):
         self.data = data
