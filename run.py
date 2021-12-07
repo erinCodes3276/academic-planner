@@ -35,40 +35,17 @@ class FancyPropositions:
 B_102 = BasicPropositions("B_102")
 B_103 = BasicPropositions("B_103")
 B_112 = BasicPropositions("B_112")
-B_218 = BasicPropositions("B_218")
-B_205 = BasicPropositions("B_205")
-B_331 = BasicPropositions("B_331")
-B_334 = BasicPropositions("B_334")
 
 C_121 = BasicPropositions("C_121")
 C_124 = BasicPropositions("C_124") 
-C_203 = BasicPropositions("C_203")
-C_204 = BasicPropositions("C_204") 
-C_221 = BasicPropositions("C_221")
-C_223 = BasicPropositions("C_223") 
-C_235 = BasicPropositions("C_235")
-C_271 = BasicPropositions("C_271")
-C_320 = BasicPropositions("C_320")
-C_330 = BasicPropositions("C_330") 
-C_352 = BasicPropositions("C_352")
-C_365 = BasicPropositions("C_365")
-C_471 = BasicPropositions("C_471") 
-C_472 = BasicPropositions("C_472")
-C_497 = BasicPropositions("C_479")
-C_499 = BasicPropositions("C_499")
-
-S_263 = BasicPropositions("S_263")
 
 M_1 = BasicPropositions("M_1")
 M_2 = BasicPropositions("M_2")
 
-A = BasicPropositions("A")
-D = BasicPropositions("D")
-
 # At least one of these will be true
-#x = FancyPropositions("x")
-#y = FancyPropositions("y")
-#z = FancyPropositions("z")
+x = FancyPropositions("x")
+y = FancyPropositions("y")
+z = FancyPropositions("z")
 
 
 # Build an example full theory for your setting and return it.
@@ -79,10 +56,11 @@ D = BasicPropositions("D")
 def example_theory():
     # Add custom constraints by creating formulas with the variables you created. 
     E.add_constraint(C_320 >> C_235)
-    # Implication
-    E.add_constraint(y >> z)
-    # Negate a formula
-    E.add_constraint((x & y).negate())
+    E.add_constraint(C_330 >> (C_121 & C_271))
+    E.add_constraint(C_332 >> (C_124 & M_1))
+    E.add_constraint(C_352 >> C_235)
+    E.add_constraint(C_360 >> (C_124 & C_204))
+    E.add_constraint(C_365 >> (C_204 & C_235))
     # You can also add more customized "fancy" constraints. Use case: you don't want to enforce "exactly one"
     # for every instance of BasicPropositions, but you want to enforce it for a, b, and c.:
     constraint.add_exactly_one(E, a, b, c)
