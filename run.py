@@ -39,8 +39,8 @@ B_112 = BasicPropositions("B_112")
 C_121 = BasicPropositions("C_121")
 C_124 = BasicPropositions("C_124") 
 
-M_1 = BasicPropositions("M_1")
-M_2 = BasicPropositions("M_2")
+M_111 = BasicPropositions("M_111")
+M_120 = BasicPropositions("M_120")
 
 # At least one of these will be true
 x = FancyPropositions("x")
@@ -57,7 +57,7 @@ def example_theory():
     # Add custom constraints by creating formulas with the variables you created. 
     E.add_constraint(C_320 >> C_235)
     E.add_constraint(C_330 >> (C_121 & C_271))
-    E.add_constraint(C_332 >> (C_124 & M_1))
+    E.add_constraint(C_332 >> (C_124 & M_111))
     E.add_constraint(C_352 >> C_235)
     E.add_constraint(C_360 >> (C_124 & C_204))
     E.add_constraint(C_365 >> (C_204 & C_235))
