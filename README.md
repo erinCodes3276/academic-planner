@@ -2,7 +2,11 @@
 
 Welcome to the major project for CISC/CMPE 204 (Fall 2021)!
 
-Change this README.md file to summarize your project (few sentences at most), and provide pointers to the general structure of the repository. How you organize and build things (which files, how you structure things, etc) is entirely up to you! The only things you must keep in place are what is already listed in the **Structure** section below.
+Choosing your courses and ensuring you are set up to take all of the required courses and prerequisites for your degree can be very stressful. This project aims to assess what courses a student must take to complete the Biomedical Computing specialization degree at Queens University.
+
+The model will demonstrate the path that shows a student enrolled in all the mandatory fourth year courses needed to graduate. If no such path exists from first year to fourth, then it means that the student does not have all the correct courses. If the model does exist that means all the prerequisites needed are met and the student is set up to graduate with a Biomedical Computing degree.
+
+
 
 ## Structure
 
