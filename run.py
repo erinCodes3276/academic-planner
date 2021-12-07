@@ -42,6 +42,25 @@ C_124 = BasicPropositions("C_124")
 M_1 = BasicPropositions("M_1")
 M_2 = BasicPropositions("M_2")
 
+D = BasicPropositions("D")
+BIO_1 = BasicPropositions("BIO_1")
+BIO_2 = BasicPropositions("BIO_2")
+BIO_3 = BasicPropositions("BIO_3")
+BIO_4 = BasicPropositions("BIO_4")
+
+MATH_1 = BasicPropositions("MATH_1")
+
+CISC_1 = BasicPropositions("CISC_1")
+CISC_2 = BasicPropositions("CISC_2")
+CISC_3 = BasicPropositions("CISC_3")
+CISC_4 = BasicPropositions("CISC_4")
+
+FIRST = BasicPropositions("FIRST")
+SECOND = BasicPropositions("SECOND")
+THIRD = BasicPropositions("THIRD")
+FOURTH = BasicPropositions("FOURTH")
+
+
 # At least one of these will be true
 x = FancyPropositions("x")
 y = FancyPropositions("y")
