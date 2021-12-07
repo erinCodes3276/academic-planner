@@ -35,12 +35,54 @@ class FancyPropositions:
 B_102 = BasicPropositions("B_102")
 B_103 = BasicPropositions("B_103")
 B_112 = BasicPropositions("B_112")
+B_218 = BasicPropositions("B_218")
+B_205 = BasicPropositions("B_205")
+B_331 = BasicPropositions("B_331")
+B_334 = BasicPropositions("B_334")
 
 C_121 = BasicPropositions("C_121")
 C_124 = BasicPropositions("C_124") 
+C_203 = BasicPropositions("C_203")
+C_204 = BasicPropositions("C_204") 
+C_221 = BasicPropositions("C_221")
+C_223 = BasicPropositions("C_223") 
+C_235 = BasicPropositions("C_235")
+C_271 = BasicPropositions("C_271") 
+C_320 = BasicPropositions("C_320") 
+C_330 = BasicPropositions("C_330")
+C_332 = BasicPropositions("C_332") 
+C_352 = BasicPropositions("C_352") 
+C_360 = BasicPropositions("C_360")
+C_365 = BasicPropositions("C_365") 
+C_471 = BasicPropositions("C_471") 
+C_472 = BasicPropositions("C_472") 
+C_497 = BasicPropositions("C_497")
+C_499 = BasicPropositions("C_499") 
 
 M_111 = BasicPropositions("M_111")
 M_120 = BasicPropositions("M_120")
+
+S_263 = BasicPropositions("S_263")
+
+A = BasicPropositions("A")
+D = BasicPropositions("D")
+
+B_1 = BasicPropositions("B_1")
+B_2 = BasicPropositions("B_2")
+B_3 = BasicPropositions("B_3")
+B_4 = BasicPropositions("B_4")
+
+C_1 = BasicPropositions("C_1")
+C_2 = BasicPropositions("C_2")
+C_3 = BasicPropositions("C_3")
+C_4 = BasicPropositions("C_4")
+
+M_1 = BasicPropositions("B_1")
+
+FIRST = BasicPropositions("FIRST")
+SECOND = BasicPropositions("SECOND")
+THIRD = BasicPropositions("THIRD")
+FOURTH = BasicPropositions("FOURTH")
 
 
 # At least one of these will be true
