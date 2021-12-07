@@ -42,25 +42,6 @@ C_124 = BasicPropositions("C_124")
 M_1 = BasicPropositions("M_1")
 M_2 = BasicPropositions("M_2")
 
-D = BasicPropositions("D")
-BIO_1 = BasicPropositions("BIO_1")
-BIO_2 = BasicPropositions("BIO_2")
-BIO_3 = BasicPropositions("BIO_3")
-BIO_4 = BasicPropositions("BIO_4")
-
-MATH_1 = BasicPropositions("MATH_1")
-
-CISC_1 = BasicPropositions("CISC_1")
-CISC_2 = BasicPropositions("CISC_2")
-CISC_3 = BasicPropositions("CISC_3")
-CISC_4 = BasicPropositions("CISC_4")
-
-FIRST = BasicPropositions("FIRST")
-SECOND = BasicPropositions("SECOND")
-THIRD = BasicPropositions("THIRD")
-FOURTH = BasicPropositions("FOURTH")
-
-
 # At least one of these will be true
 x = FancyPropositions("x")
 y = FancyPropositions("y")
@@ -80,6 +61,7 @@ def example_theory():
     E.add_constraint(C_352 >> C_235)
     E.add_constraint(C_360 >> (C_124 & C_204))
     E.add_constraint(C_365 >> (C_204 & C_235))
+    E.add_constraint(C_471 >> (C_271 & C_352 & C_365))
     # You can also add more customized "fancy" constraints. Use case: you don't want to enforce "exactly one"
     # for every instance of BasicPropositions, but you want to enforce it for a, b, and c.:
     constraint.add_exactly_one(E, a, b, c)
