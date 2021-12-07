@@ -59,8 +59,8 @@ C_472 = BasicPropositions("C_472")
 C_497 = BasicPropositions("C_497")
 C_499 = BasicPropositions("C_499") 
 
-M_111 = BasicPropositions("M_111")
-M_120 = BasicPropositions("M_120")
+T_111 = BasicPropositions("M_111")
+T_120 = BasicPropositions("M_120")
 
 S_263 = BasicPropositions("S_263")
 
@@ -77,7 +77,7 @@ C_2 = BasicPropositions("C_2")
 C_3 = BasicPropositions("C_3")
 C_4 = BasicPropositions("C_4")
 
-M_1 = BasicPropositions("B_1")
+T_1 = BasicPropositions("B_1")
 
 FIRST = BasicPropositions("FIRST")
 SECOND = BasicPropositions("SECOND")
