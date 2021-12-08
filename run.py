@@ -101,6 +101,12 @@ FOURTH = BasicPropositions("FOURTH")
 #  what the expectations are.
 def example_theory():
     # CISC course and Math prerequisite implication constraints
+    E.add_constraint(C_124 >> C_121)
+    E.add_constraint(C_203 >> (C_124 & T_111))
+    E.add_constraint(C_221 >> C_124)
+    E.add_constraint(C_223 >> (C_124 & C_203))
+    E.add_constraint(C_235 >> C_204)
+    E.add_constraint(C_271 >> (C_121 & T_111 & T_120))
     E.add_constraint(C_320 >> C_235)
     E.add_constraint(C_330 >> (C_121 & C_271))
     E.add_constraint(C_332 >> (C_124 & T_111))
@@ -108,6 +114,25 @@ def example_theory():
     E.add_constraint(C_360 >> (C_124 & C_204))
     E.add_constraint(C_365 >> (C_204 & C_235))
     E.add_constraint(C_471 >> (C_271 & C_352 & C_365))
+    E.add_constraint(C_472 >> C_330)
+    E.add_constraint(C_497 >> C_365)
+    E.add_constraint(C_499 >> C_365)
+    
+    #Biology Constraints
+    E.add_constraint(B_218 >> (B_102 & B_112))
+    E.add_constraint(B_205 >> (B_102 & B_103))
+    E.add_constraint(B_331 >> B_218)
+    E.add_constraint(B_334 >> B_218)
+    
+    #Year Constraints
+    E.add_constraint(FIRST >> (B_1 & T_1 & C_1))
+    E.add_constraint(SECOND >> (B_2 & C_2))
+    E.add_constraint(THIRD >> (B_3 & C_3))
+    E.add_constraint(FOURTH >> (B_4 & C_4))
+    
+    #Degree Constraint
+    E.add_constraint(D >> (FIRST & SECOND & THIRD & FOURTH))
+    
     # You can also add more customized "fancy" constraints. Use case: you don't want to enforce "exactly one"
     # for every instance of BasicPropositions, but you want to enforce it for a, b, and c.:
     constraint.add_exactly_one(E, a, b, c)
