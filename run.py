@@ -1,4 +1,5 @@
 
+
 from bauhaus import Encoding, proposition, constraint
 from bauhaus.utils import count_solutions, likelihood
 
@@ -71,10 +72,10 @@ T_2 = BasicPropositions("T_2")
 
 
 #Completed first/second/third/fourth year
-FIRSt = BasicPropositions("Fi")
-SECOND = BasicPropositions("S")
-THIRD = BasicPropositions("T")
-FOURTH = BasicPropositions("Fo")
+FIRSt = BasicPropositions("FIRST")
+SECOND = BasicPropositions("SECOND")
+THIRD = BasicPropositions("THIRD")
+FOURTH = BasicPropositions("FOURTH")
 
 
 # Build an example full theory for your setting and return it.
@@ -84,6 +85,7 @@ FOURTH = BasicPropositions("Fo")
 #  what the expectations are.
 def example_theory():
     # CISC course and Math prerequisite implication constraints
+
     E.add_constraint(C_124 >> C_121)
     E.add_constraint(C_203 >> (C_121 & C_102))
     E.add_constraint(C_204 >> (C_121 & C_102))
@@ -134,6 +136,37 @@ def example_theory():
 
 
     return E
+
+def display_solution():
+    print("Welcome to 4th year course registration. Once you input the courses you want to "
+          "take in 4th year, we will tell you if you have the proper requirements to take the course and if they make you eligible to graduate with a Biomedical Computing degree.")
+    desiredCourse = str(input("Please input one of the desired courses you wish to take in 4th year (C_xxx): "))
+    fourthYearCiscCourses = ['C_471', 'C_472', 'C_497', 'C_499']
+    prereqCompleted = False
+    if desiredCourse in fourthYearCiscCourses:
+        if desiredCourse == fourthYearCiscCourses[0]:
+            preReqInput = input("Did you take CISC 271, CISC 352 and CISC 365?").upper()
+            if preReqInput == "YES" or preReqInput == "Y":
+                prereqCompleted = True
+                print("You are elligible to take CISC 471")
+        elif desiredCourse == fourthYearCiscCourses[1]:
+            preReqInput = input("Did you take CISC 330?").upper()
+            if preReqInput == "YES" or preReqInput == "Y":
+                prereqCompleted = True
+                print("You are elligible to take CISC 471")
+        elif desiredCourse == fourthYearCiscCourses[2] or desiredCourse == fourthYearCiscCourses[3]:
+            preReqInput = input("Did you take CISC 365?").upper()
+            if preReqInput == "YES" or preReqInput == "Y":
+                prereqCompleted = True
+                print("You are elligible to take CISC 471")
+        else:
+            print("That is not a 4th year CISC course.")
+    else:
+        print("That is not a 4th year CISC course.")
+
+
+
+
 
 
 if __name__ == "__main__":
