@@ -124,10 +124,10 @@ def example_theory():
     E.add_constraint(C_4 >> (C_471 & C_472 & C_497 & C_499))
 
     #Year Constraints
-    E.add_constraint(FIRST >> (B_1 & T_1 & C_1))
-    E.add_constraint(SECOND >> (B_2 & T_2 & C_2))
-    E.add_constraint(THIRD >> (B_3 & C_3))
-    E.add_constraint(FOURTH >> (B_4 & C_4))
+    E.add_constraint(Fi >> (B_1 & T_1 & C_1))
+    E.add_constraint(S >> (B_2 & T_2 & C_2))
+    E.add_constraint(T >> (B_3 & C_3))
+    E.add_constraint(Fo >> (B_4 & C_4))
     
     #Degree Constraint
     E.add_constraint(D >> (Fi & S & T & Fo & A))
