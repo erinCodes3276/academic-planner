@@ -71,10 +71,10 @@ T_2 = BasicPropositions("T_2")
 
 
 #Completed first/second/third/fourth year
-FIRSt = BasicPropositions("FIRST")
-SECOND = BasicPropositions("SECOND")
-THIRD = BasicPropositions("THIRD")
-FOURTH = BasicPropositions("FOURTH")
+FIRSt = BasicPropositions("Fi")
+SECOND = BasicPropositions("S")
+THIRD = BasicPropositions("T")
+FOURTH = BasicPropositions("Fo")
 
 
 # Build an example full theory for your setting and return it.
@@ -130,7 +130,7 @@ def example_theory():
     E.add_constraint(FOURTH >> (B_4 & C_4))
     
     #Degree Constraint
-    E.add_constraint(D >> (FIRST & SECOND & THIRD & FOURTH & A))
+    E.add_constraint(D >> (Fi & S & T & Fo & A))
 
 
     return E
