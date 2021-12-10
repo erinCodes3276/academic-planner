@@ -5,45 +5,24 @@ from bauhaus.utils import count_solutions, likelihood
 # Encoding that will store all of your constraints
 E = Encoding()
 
-# To create propositions, create classes for them first, annotated with "@proposition" and the Encoding
-@proposition(E)
-class BasicPropositions:
 
-    def __init__(self, data):
-        self.data = data
-
-    def __repr__(self):
-        return f"A.{self.data}"
-
-
-# Different classes for propositions are useful because this allows for more dynamic constraint creation
-# for propositions within that class. For example, you can enforce that "at least one" of the propositions
-# that are instances of this class must be true by using a @constraint decorator.
-# other options include: at most one, exactly one, at most k, and implies all.
-# For a complete module reference, see https://bauhaus.readthedocs.io/en/latest/bauhaus.html
-#@constraint.at_least_one(E)
-#@proposition(E)
-#class FancyPropositions:
-
- #   def __init__(self, data):
-    #    self.data = data
-
-  #  def __repr__(self):
-   #     return f"A.{self.data}"
-
-# Call your variables whatever you want
 #Biology / Chemistry / Biochem Requirements (classes)
+
 B_102 = BasicPropositions("B_102")
 B_103 = BasicPropositions("B_103")
 B_112 = BasicPropositions("B_112")
 B_218 = BasicPropositions("B_218")
 B_205 = BasicPropositions("B_205")
+B_282 = BasicPropositions("B_282")
+B_315 = BasicPropositions("B_315")
 B_331 = BasicPropositions("B_331")
 B_334 = BasicPropositions("B_334")
 
-#Computer SCience Requirements (classes)
+
+#Computer Science Requirements
 C_121 = BasicPropositions("C_121")
-C_124 = BasicPropositions("C_124") 
+C_124 = BasicPropositions("C_124")
+C_102 = BasicPropositions("C_102")
 C_203 = BasicPropositions("C_203")
 C_204 = BasicPropositions("C_204") 
 C_221 = BasicPropositions("C_221")
@@ -70,6 +49,7 @@ S_263 = BasicPropositions("S_263")
 
 #Additional requirement (12 units from several classes)
 A = BasicPropositions("A")
+#Degree completion
 D = BasicPropositions("D")
 
 #BIOL/CHEM/BCHEM requirements by year (1st, 2nd, 3rd, 4th)
@@ -84,11 +64,14 @@ C_2 = BasicPropositions("C_2")
 C_3 = BasicPropositions("C_3")
 C_4 = BasicPropositions("C_4")
 
-#MATH requirements (only 1st year)
+#MATH requirements
 T_1 = BasicPropositions("B_1")
+T_2 = BasicPropositions("T_2")
+
+
 
 #Completed first/second/third/fourth year
-FIRST = BasicPropositions("FIRST")
+FIRSt = BasicPropositions("FIRST")
 SECOND = BasicPropositions("SECOND")
 THIRD = BasicPropositions("THIRD")
 FOURTH = BasicPropositions("FOURTH")
@@ -102,40 +85,53 @@ FOURTH = BasicPropositions("FOURTH")
 def example_theory():
     # CISC course and Math prerequisite implication constraints
     E.add_constraint(C_124 >> C_121)
-    E.add_constraint(C_203 >> (C_124 & T_111))
+    E.add_constraint(C_203 >> (C_121 & C_102))
+    E.add_constraint(C_204 >> (C_121 & C_102))
     E.add_constraint(C_221 >> C_124)
-    E.add_constraint(C_223 >> (C_124 & C_203))
-    E.add_constraint(C_235 >> C_204)
+    E.add_constraint(C_223 >> (C_124 & C_204))
+    E.add_constraint(C_235 >> (C_203 & C124))
     E.add_constraint(C_271 >> (C_121 & T_111 & T_120))
     E.add_constraint(C_320 >> C_235)
-    E.add_constraint(C_330 >> (C_121 & C_271))
-    E.add_constraint(C_332 >> (C_124 & T_111))
+    E.add_constraint(C_330 >> (C_271))
+    E.add_constraint(C_332 >> (C_124 & C_102))
     E.add_constraint(C_352 >> C_235)
     E.add_constraint(C_360 >> (C_124 & C_204))
-    E.add_constraint(C_365 >> (C_204 & C_235))
+    E.add_constraint(C_365 >> (C_204 & C_235 & C_203))
     E.add_constraint(C_471 >> (C_271 & C_352 & C_365))
     E.add_constraint(C_472 >> C_330)
     E.add_constraint(C_497 >> C_365)
     E.add_constraint(C_499 >> C_365)
     
     #Biology Constraints
-    E.add_constraint(B_218 >> (B_102 & B_112))
-    E.add_constraint(B_205 >> (B_102 & B_103))
-    E.add_constraint(B_331 >> B_218)
+    E.add_constraint(B_103 >> B_102)
+    E.add_constraint(B_218 >> (B_103 & B_112))
+    E.add_constraint(B_205 >> B_103)
+    E.add_constraint(B_331 >> (B_218 & B_205))
     E.add_constraint(B_334 >> B_218)
-    
+    E.add_constraint(B_315 >> (B_218 & B_282))
+
+    # Yearly Faculty Constraints
+    E.add_constraint(T_1 >> (T_111 & T_120))
+    E.add_constraint(T_2 >> S_263)
+
+    E.add_constraint(B_1 >> (B_102 & B_112 & B_103))
+    E.add_constraint(B_2 >> (B_218 & B_205 & B_282))
+    E.add_constraint(B_3 >> (B_331 & B_334 & B_315))
+
+    E.add_constraint(C_1 >> (C_121 & C_124 & C_102))
+    E.add_constraint(C_2 >> (C_203 & C_204 & C_221 & C_223 & C_235 & C_271))
+    E.add_constraint(C_3 >> (C_320 & C_330 & C_332 & C_352 & C_360 & C_365))
+    E.add_constraint(C_4 >> (C_471 & C_472 & C_497 & C_499))
+
     #Year Constraints
     E.add_constraint(FIRST >> (B_1 & T_1 & C_1))
-    E.add_constraint(SECOND >> (B_2 & C_2))
+    E.add_constraint(SECOND >> (B_2 & T_2 & C_2))
     E.add_constraint(THIRD >> (B_3 & C_3))
     E.add_constraint(FOURTH >> (B_4 & C_4))
     
     #Degree Constraint
-    E.add_constraint(D >> (FIRST & SECOND & THIRD & FOURTH))
-    
-    # You can also add more customized "fancy" constraints. Use case: you don't want to enforce "exactly one"
-    # for every instance of BasicPropositions, but you want to enforce it for a, b, and c.:
-    constraint.add_exactly_one(E, a, b, c)
+    E.add_constraint(D >> (FIRST & SECOND & THIRD & FOURTH & A))
+
 
     return E
 
@@ -143,7 +139,7 @@ def example_theory():
 if __name__ == "__main__":
 
     T = example_theory()
-    # Don't compile until you're finished adding all your constraints!
+
     T = T.compile()
     # After compilation (and only after), you can check some of the properties
     # of your model:
